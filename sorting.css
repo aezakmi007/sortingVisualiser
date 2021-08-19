@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+.background {
+  background: #0f0c29;
+  background: -webkit-linear-gradient(
+    to right,
+    #0f0c29,
+    #302b63,
+    #24243e
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0f0c29,
+    #302b63,
+    #24243e
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+header {
+  text-align: center;
+}
+h1 {
+  color: white;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.nav-item {
+  margin-right: 0.5rem;
+}
+.newArray-btn {
+  margin-left: 0.5rem;
+}
