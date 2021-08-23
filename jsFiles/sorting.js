@@ -14,4 +14,5 @@ const generateBars = () => {
     bar.style.height = `${arr[i]}px`;
   }
 };
+
 document.getElementById("NA").addEventListener("click", generateBars);

@@ -15,7 +15,7 @@ const bubble = async function () {
         await new Promise((resolve) =>
           setTimeout(() => {
             resolve();
-          }, 2)
+          }, 2000)
         );
         swap(children[j], children[j + 1]);
       }
