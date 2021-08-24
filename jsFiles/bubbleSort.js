@@ -1,5 +1,5 @@
 const bubble = async function () {
-  const children = document.getElementById("bars").children;
+  const children = getBars();
   const n = children.length;
 
   for (let i = 0; i < n; i++) {
@@ -12,11 +12,7 @@ const bubble = async function () {
         parseInt(children[j].style.height) >=
         parseInt(children[j + 1].style.height)
       ) {
-        await new Promise((resolve) =>
-          setTimeout(() => {
-            resolve();
-          }, 2000)
-        );
+        await waithere();
         swap(children[j], children[j + 1]);
       }
 

@@ -21,11 +21,7 @@ const selection = async function () {
       }
     }
     children[i].style.backgroundColor = "red";
-    await new Promise((resolve) =>
-      setTimeout(() => {
-        resolve();
-      }, 2000)
-    );
+    await waithere();
     swap(children[min_idx], children[i]);
     children[i].style.backgroundColor = "green";
     if (min_idx != i) {
