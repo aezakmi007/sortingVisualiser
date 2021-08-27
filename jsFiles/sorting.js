@@ -5,10 +5,10 @@ const generateRandom = () => {
 const element = document.getElementById("bars");
 const generateBars = () => {
   element.innerHTML = "";
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 100; i++) {
     arr[i] = generateRandom();
   }
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 100; i++) {
     const bar = document.createElement("div");
     element.appendChild(bar).classList.add("bar");
     bar.style.height = `${arr[i]}px`;
