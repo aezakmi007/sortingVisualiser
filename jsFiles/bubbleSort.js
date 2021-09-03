@@ -6,8 +6,8 @@ const bubble = async function () {
     let j = 0;
 
     for (j = 0; j < n - i - 1; j++) {
-      children[j].style.backgroundColor = "red";
-      children[j + 1].style.backgroundColor = "red";
+      children[j].style.backgroundColor = "orange";
+      children[j + 1].style.backgroundColor = "pink";
       if (
         parseInt(children[j].style.height) >=
         parseInt(children[j + 1].style.height)

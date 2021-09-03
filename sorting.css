@@ -33,11 +33,24 @@ h1 {
 }
 #bars {
   display: flex;
-  padding-right: 20%;
-  padding-left: 20%;
+  width: auto;
+  justify-content: center;
 }
 .bar {
   background-color: #ffd700;
-  width: 100px;
+  width: 10px;
   border: black solid 1px;
+}
+.range {
+  width: 11%;
+  margin-left: 29px;
+  font-size: 1.2rem;
+  margin-top: 13px;
+}
+
+p {
+  margin-left: 79px;
+  font-size: 1.2rem;
+  margin-top: 21px;
+  color: white;
 }

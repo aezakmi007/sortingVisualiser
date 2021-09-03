@@ -1,47 +1,47 @@
 const bars = getBars();
 const merge = async function (children, l, m, r) {
   let k = 0;
-  let n1 = m - l + 1;
-  let n2 = r - m;
-  let i = 0;
-  let j = 0;
+  const n1 = m - l + 1;
+  const n2 = r - m;
 
-  let L = [];
-  let R = [];
+  let L = new Array(n1);
+  let R = new Array(n2);
 
-  for (i = 0; i < n1; i++) {
+  for (let i = 0; i < n1; i++) {
     await waithere();
-    children[i].style.backgroundColor = "orange";
+    children[l + i].style.backgroundColor = "orange";
     L[i] = parseInt(children[l + i].style.height);
+    console.log(L[i]);
   }
 
-  for (j = 0; j < n2; j++) {
+  for (let j = 0; j < n2; j++) {
     await waithere();
-    children[i].style.backgroundColor = "pink";
+    children[m + j + 1].style.backgroundColor = "pink";
     R[j] = parseInt(children[m + j + 1].style.height);
   }
 
-  k = l;
   await waithere();
+  k = l;
+  let i = 0;
+  let j = 0;
   while (i < n1 && j < n2) {
     await waithere();
-
     if (L[i] <= R[j]) {
       if (n1 + n2 == bars.length) {
-        children[i].style.backgroundColor = "green";
+        children[k].style.backgroundColor = "green";
       } else {
-        children[i].style.backgroundColor = "yellow";
+        children[k].style.backgroundColor = "blue";
       }
-      children[i].style.height = `${L[i]}px`;
+      children[k].style.height = `${L[i]}px`;
       i++;
       k++;
     } else {
       if (n1 + n2 == bars.length) {
-        children[j].style.backgroundColor = "green";
+        children[k].style.backgroundColor = "green";
       } else {
-        children[j].style.backgroundColor = "yellow";
+        children[k].style.backgroundColor = "blue";
       }
-      children[j].style.height = `${R[j]}px`;
+      children[k].style.height = `${R[j]}px`;
       j++;
       k++;
     }
@@ -51,7 +51,7 @@ const merge = async function (children, l, m, r) {
     if (n1 + n2 === children.length) {
       children[k].style.backgroundColor = "green";
     } else {
-      children[k].style.backgroundColor = "yellow";
+      children[k].style.backgroundColor = "blue";
     }
     children[k].style.height = `${L[i]}px`;
     i++;
@@ -62,7 +62,7 @@ const merge = async function (children, l, m, r) {
     if (n1 + n2 === children.length) {
       children[k].style.backgroundColor = "green";
     } else {
-      children[k].style.backgroundColor = "yellow";
+      children[k].style.backgroundColor = "blue";
     }
     children[k].style.height = `${R[j]}px`;
     j++;
@@ -76,11 +76,10 @@ async function mergeSort(children, l, r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-
   await mergeSort(children, l, m);
   await mergeSort(children, m + 1, r);
   await merge(children, l, m, r);
 }
-document.getElementById("MS").addEventListener("click", () => {
-  mergeSort(bars, 0, parseInt(bars.length - 1));
+document.getElementById("MS").addEventListener("click", async () => {
+  await mergeSort(bars, 0, parseInt(bars.length) - 1);
 });
